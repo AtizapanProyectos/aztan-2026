@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATZÁN 2026 | Gobierno de Atizapán de Zaragoza</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--oro:#d9b27c;--oro2:#a9753f;--bg:#120d0b;--card:#1d1612;--txt:#f3e9dc}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(circle at 50% 0,#2a1d17 0,var(--bg) 60%) fixed;color:var(--txt);font-family:'Montserrat',sans-serif}
+a{color:inherit;text-decoration:none}
+
+/* ===== EFECTOS ===== */
+#estrellas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.humo{position:fixed;left:0;right:0;bottom:-60px;height:340px;pointer-events:none;z-index:2;overflow:hidden}
+.humo span{position:absolute;bottom:-120px;width:520px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(217,178,124,.28),rgba(217,178,124,.06) 55%,transparent 70%);
+  filter:blur(38px);animation:humo 18s ease-in-out infinite alternate}
+.humo span:nth-child(1){left:-8%}
+.humo span:nth-child(2){left:18%;animation-duration:23s;animation-delay:-6s;opacity:.8}
+.humo span:nth-child(3){left:42%;animation-duration:20s;animation-delay:-3s}
+.humo span:nth-child(4){left:66%;animation-duration:26s;animation-delay:-11s;opacity:.8}
+.humo span:nth-child(5){left:86%;animation-duration:21s;animation-delay:-8s}
+@keyframes humo{0%{transform:translate(-60px,20px) scale(1)}50%{transform:translate(40px,-30px) scale(1.2)}100%{transform:translate(90px,10px) scale(1.05)}}
+header,main,footer{position:relative;z-index:3}
+
+/* ===== HEADER ===== */
+.top-bar{display:flex;justify-content:space-between;align-items:center;padding:8px 5%;background:#000;font-size:.8rem}
+.top-bar .soc a{margin-left:14px}
+.top-bar a:hover{color:var(--oro)}
+.brand{text-align:center;padding:16px;background:#fff}
+.brand img{max-height:70px;max-width:90%}
+.nav{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;background:#2a1d17;padding:0 10px}
+.nav>a,.nav .item>span{display:block;padding:14px 18px;font-weight:700;font-size:.8rem;letter-spacing:.05em;cursor:pointer}
+.nav>a:hover,.nav .item:hover>span{color:var(--oro)}
+.item{position:relative}
+.drop{display:none;position:absolute;top:100%;left:0;min-width:260px;background:#1d1612;border:1px solid rgba(217,178,124,.3);z-index:20;box-shadow:0 10px 25px rgba(0,0,0,.5)}
+.item:hover .drop{display:block}
+.drop a{display:block;padding:11px 16px;font-size:.82rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.drop a:hover{background:rgba(217,178,124,.15);color:var(--oro)}
+.drop i{width:22px;color:var(--oro)}
+.gradline{height:5px;background:linear-gradient(90deg,#7e3f98,#00bcd4)}
+
+/* ===== HERO ===== */
+.hero{max-width:1100px;margin:0 auto;padding:50px 20px 20px;text-align:center}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,6vw,3.8rem);letter-spacing:.14em;
+  background:linear-gradient(90deg,var(--oro),#fff3dc,var(--oro2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{margin:8px 0 28px;letter-spacing:.2em;font-size:.85rem;color:var(--oro);text-transform:uppercase}
+.poster{display:block;max-width:560px;width:100%;margin:0 auto;border-radius:14px;cursor:zoom-in;
+  border:1px solid rgba(217,178,124,.5);box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 40px rgba(217,178,124,.18);transition:transform .3s}
+.poster:hover{transform:scale(1.015)}
+.hint{font-size:.75rem;opacity:.6;margin-top:10px}
+
+/* ===== VIDEO ANCHO ===== */
+.video-hero{position:relative;width:100%;height:min(80vh,620px);overflow:hidden;background:#000}
+.video-hero video{width:100%;height:100%;object-fit:cover;display:block}
+.video-shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(18,13,11,.15),rgba(18,13,11,.75))}
+.video-txt{position:absolute;left:0;right:0;bottom:8%;text-align:center;padding:0 20px}
+.video-txt h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,7vw,4.6rem);letter-spacing:.14em;
+  background:linear-gradient(90deg,var(--oro),#fff3dc,var(--oro2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.video-txt p{margin-top:6px;letter-spacing:.2em;font-size:.9rem;color:var(--oro);text-transform:uppercase}
+.sonido{position:absolute;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;border:1px solid var(--oro);background:rgba(18,13,11,.7);color:var(--oro);cursor:pointer;font-size:1rem}
+.sonido:hover{background:var(--oro);color:#000}
+
+/* ===== GALERÍA ===== */
+.gal{max-width:1200px;margin:0 auto;padding:30px 20px 90px}
+.gal h2{font-family:'Cormorant Garamond',serif;text-align:center;font-size:2.3rem;color:var(--oro)}
+.gal .sub{text-align:center;opacity:.7;margin:4px 0 22px;font-size:.9rem}
+.filtros{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:30px}
+.filtros button{background:rgba(18,13,11,.6);color:var(--txt);border:1px solid rgba(217,178,124,.5);padding:7px 14px;border-radius:30px;font:600 .78rem 'Montserrat',sans-serif;cursor:pointer;transition:.2s}
+.filtros button:hover,.filtros button.activo{background:linear-gradient(135deg,var(--oro),var(--oro2));color:#1a110b;border-color:transparent}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid rgba(217,178,124,.25);border-radius:14px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 14px 34px rgba(217,178,124,.2)}
+.card.oculto{display:none}
+.img{position:relative;aspect-ratio:4/5;background:linear-gradient(160deg,#3a2a20,#7e3f98 70%,#00bcd4) center/cover;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.25);font-size:2.4rem}
+.img.foto i{display:none}
+.fecha{position:absolute;top:12px;left:12px;background:rgba(18,13,11,.85);border:1px solid var(--oro);color:var(--oro);border-radius:10px;padding:6px 10px;font-weight:700;font-size:.75rem;text-align:center;line-height:1.2}
+.fecha b{display:block;font-size:1.2rem;color:#fff}
+.info{padding:16px}
+.info h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:#fff;margin-bottom:6px}
+.info small{display:block;font-size:.78rem;opacity:.85;line-height:1.7}
+.info small i{color:var(--oro);width:16px}
+
+/* ===== LIGHTBOX ===== */
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.93);display:none;align-items:center;justify-content:center;z-index:10000;padding:20px}
+.lb.abierto{display:flex}
+.lb img{max-width:100%;max-height:92vh;border-radius:8px}
+
+/* ===== FOOTER ===== */
+footer{background:#0a0706;border-top:3px solid var(--oro2);padding-top:36px}
+.fcont{max-width:1200px;margin:0 auto;padding:0 20px 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;font-size:.88rem;line-height:1.7}
+.fcont h4{color:var(--oro);margin-bottom:8px;font-size:1rem}
+.fcont img{max-width:200px;margin-bottom:10px}
+.fbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.fbtns a{border:1px solid var(--oro);padding:7px 12px;border-radius:20px;font-size:.78rem}
+.fbtns a:hover{background:var(--oro);color:#000}
+.fcont ul{list-style:none}
+.redes a{margin-right:14px;font-size:1.2rem}
+.redes a:hover,.fcont ul a:hover{color:var(--oro)}
+.fbottom{text-align:center;padding:16px;background:#000;font-size:.78rem;opacity:.85}
+
+/* ===== BOTÓN FLOTANTE ===== */
+.globo{position:fixed;bottom:30px;right:30px;padding:14px 24px;background:linear-gradient(135deg,#7e3f98,#00bcd4);border-radius:50px;box-shadow:0 8px 20px rgba(0,0,0,.4);display:flex;align-items:center;gap:10px;cursor:pointer;z-index:9999;color:#fff;font-weight:700;animation:latido 3s infinite ease-in-out}
+.globo:hover{animation:none;transform:scale(1.05)}
+@keyframes latido{50%{transform:scale(1.03)}}
+@media(max-width:768px){.globo{bottom:20px;right:20px;padding:12px 18px;font-size:.9rem}.nav>a,.nav .item>span{padding:11px 12px}}
+</style>
+</head>
+<body>
+
+<canvas id="estrellas"></canvas>
+<div class="humo"><span></span><span></span><span></span><span></span><span></span></div>
+
+
+
+<main>
+  <!-- ===== FOTO PRINCIPAL ===== -->
+  <section class="video-hero">
+    <video id="vid" src="video.mp4" poster="cartelera.jpg" autoplay muted loop playsinline></video>
+    <div class="video-shade"></div>
+    <div class="video-txt">
+      <h1>ATZÁN 2026</h1>
+      <p>Festival Internacional de las Artes · Del 16 al 25 de octubre</p>
+    </div>
+    <button class="sonido" id="btnSonido" onclick="alternarSonido()" aria-label="Sonido"><i class="fa-solid fa-volume-xmark"></i></button>
+  </section>
+
+  <!-- ===== CARTELERA ===== -->
+  <section class="hero">
+    <p style="margin-top:0">Cartelera oficial</p>
+    <img class="poster" src="cartelera.jpg" alt="Cartelera oficial ATZÁN 2026" onclick="abrirLB(this.src)">
+    <div class="hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Toca la cartelera para verla en grande</div>
+  </section>
+
+  <!-- ===== GALERÍA ===== -->
+  <section class="gal">
+    <h2>Eventos</h2>
+    <p class="sub">Música, danza, teatro, arte y cultura</p>
+    <div class="filtros" id="filtros"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+</main>
+
+<div class="lb" id="lb" onclick="this.classList.remove('abierto')"><img id="lbimg" alt=""></div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="fcont">
+    <div>
+      <img src="logo.png" alt="Atizapán de Zaragoza">
+      <p>Cuenta con la mejor tecnología en <strong>SEGURIDAD CIBERNÉTICA</strong></p>
+    </div>
+    <div>
+      <h4>Módulo de atención ciudadana</h4>
+      <p>Blvd. Adolfo López Mateos 91. El Potrero. 52875 Cd. López Mateos, Méx.</p>
+      <div class="fbtns">
+        <a href="https://goo.gl/maps/LWU4NxGiidymhDWE6">Ver ubicación</a>
+        <a href="https://atizapan.gob.mx/contacto/">Contacto</a>
+        <a href="https://www.atizapan.gob.mx/atizapanteescucha/">Atizapán te escucha</a>
+        <a href="https://atizapan.gob.mx/servicios-en-linea/">Atizapán en Línea</a>
+      </div>
+    </div>
+    <div>
+      <h4>Emergencias</h4>
+      <p><strong><a href="https://atizapan.gob.mx/wp-content/uploads/2024/04/numeros-emergencia-atizapan.pdf" target="_blank" style="text-decoration:underline">Números de emergencia</a> <a href="tel:911" style="text-decoration:underline">911</a></strong></p>
+      <h4 style="margin-top:10px">Acércate</h4>
+      <div class="redes">
+        <a href="https://www.facebook.com/GobAtizapan" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/gobatizapan/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://twitter.com/GobAtizapan" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.youtube.com/@AtizapanGob2025" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+      <ul style="margin-top:8px">
+        <li><a href="https://atizapan.gob.mx/glosario/">Glosario</a></li>
+        <li><a href="https://atizapan.gob.mx/wp-content/uploads/2022/03/aviso-privacidad-atizapan.pdf">Aviso de privacidad</a></li>
+      </ul>
+      <p style="margin-top:8px"><a href="tel:5536222800">55 3622 2800</a> | <a href="tel:5536222700">55 3622 2700</a></p>
+    </div>
+  </div>
+  <div class="fbottom">© 2025–2027 Ayuntamiento de Atizapán de Zaragoza. Gobierna con la ciudadanía.</div>
+</footer>
+
+
+
+<script>
+/* ===== EVENTOS (edita aquí; imagen en carpeta eventos/) ===== */
+var eventos = [
+  /* VIE 16 */
+  {dia:16, sem:'VIE', titulo:'La Bella Durmiente', extra:'Ballet de Monterrey · Inauguración', hora:'20:00 hrs', lugar:'Palacio Municipal', img:'octubre 16/BELLA DURMIENTE.png'},
+
+  /* SÁB 17 */
+  {dia:17, sem:'SÁB', titulo:'Expresiones y Sentimientos', extra:'Exposición Pictórica', hora:'12:00 hrs', lugar:'Palacio Municipal', img:'octubre 17/1_Expresiones y sentimientos.png'},
+  {dia:17, sem:'SÁB', titulo:'Mario Galaxy y sus amigos', extra:'Tributo Musical', hora:'16:00 hrs', lugar:'Col. Margarita Maza de Juárez', img:'octubre 17/2_mario galaxy.png'},
+  {dia:17, sem:'SÁB', titulo:'Aladín', extra:'Teatro Musical', hora:'16:00 y 18:00 hrs', lugar:'Teatro Zaragoza', img:'octubre 17/3_aladdín.png'},
+  {dia:17, sem:'SÁB', titulo:'Natalia Jiménez', extra:'', hora:'20:00 hrs', lugar:'Palacio Municipal', img:'octubre 17/4_natalia jiménez.png'},
+
+  /* DOM 18 */
+  {dia:18, sem:'DOM', titulo:'Tributo a Toy Story', extra:'Musical', hora:'12:00 hrs', lugar:'Palacio Municipal', img:'octubre 18/1_TOY STORY.png'},
+  {dia:18, sem:'DOM', titulo:'ATZÁN, La materia de los sueños', extra:'Exposición', hora:'13:00 hrs', lugar:'Plaza la Antigua', img:'octubre 18/2_Atzán la materia de los sueños.png'},
+  {dia:18, sem:'DOM', titulo:'JAZZPEANDO', extra:'Compañía teatral "La Trouppe" · Teatro Negro', hora:'18:00 hrs', lugar:'Teatro Zaragoza', img:'octubre 18/3_jazzpeando.png'},
+  {dia:18, sem:'DOM', titulo:'Ensamble Zänä', extra:'Música', hora:'19:00 hrs', lugar:'Capilla de San Francisco de Asís (Col. Miraflores)', img:'octubre 18/4_ensamble zänä.png'},
+  {dia:18, sem:'DOM', titulo:'Ópera Prima Rock', extra:'Tributo a Queen', hora:'20:00 hrs', lugar:'Palacio Municipal', img:'octubre 18/5_OPERA ROCK TRIBUTO QUEEN.png'},
+
+  /* LUN 19 */
+  {dia:19, sem:'LUN', titulo:'Una Eva y tres galanes', extra:'Teatro · Con César Évora, Omar Fierro, Mariazel y Sabine Moussier', hora:'16:00 y 19:00 hrs', lugar:'Teatro Zaragoza', img:'octubre 19/Una eva y tres galanes.png'},
+
+  /* MAR 20 */
+  {dia:20, sem:'MAR', titulo:'Hércules el Musical', extra:'Teatro Musical', hora:'16:00 y 19:00 hrs', lugar:'Teatro Zaragoza', img:'octubre 20/2_hercules.png'},
+  {dia:20, sem:'MAR', titulo:'Camerata Juvenil de México', extra:'Música', hora:'19:00 hrs', lugar:'Parroquia de Guadalupe (Lomas de Guadalupe)', img:'octubre 20/1_Camerata juvenil de mexico.png'},
+
+  /* MIÉ 21 */
+  {dia:21, sem:'MIÉ', titulo:'Niño Perdido', extra:'Teatro · Con Lolita Cortés', hora:'17:00 y 19:00 hrs', lugar:'Teatro Zaragoza', img:'octubre 21/1_niño perdido.png'},
+  {dia:21, sem:'MIÉ', titulo:'El Lago de los Cisnes', extra:'Ballet de Kiev', hora:'20:00 hrs', lugar:'Palacio Municipal', img:'octubre 21/2_lago de los cisnes_B.png'},
+
+  /* JUE 22 */
+  {dia:22, sem:'JUE', titulo:'¡Qué desastre de función!', extra:'Teatro cómico', hora:'16:30 y 19:30 hrs', lugar:'Teatro Zaragoza', img:'octubre 22/1_QUE DESASTRE DE FUNCIÓN.png'},
+  {dia:22, sem:'JUE', titulo:'Arcano', extra:'Espectáculo de luces, música y danza', hora:'20:00 hrs', lugar:'Palacio Municipal', img:'octubre 22/2_Arcano.png'},
+
+  /* VIE 23 */
+  {dia:23, sem:'VIE', titulo:'La Era del Rock', extra:'Musical · Clasificación B', hora:'16:00 y 19:00 hrs', lugar:'Teatro Zaragoza', img:'octubre 23/1_LA ERA DEL ROCK.png'},
+  {dia:23, sem:'VIE', titulo:'Ensamble Barroco del CNM', extra:'Música', hora:'19:30 hrs', lugar:'Iglesia de San Fernando (Valle Escondido)', img:'octubre 23/2_Ensamble barroco.png'},
+  {dia:23, sem:'VIE', titulo:'Perfume de Gardenia', extra:'Con la Sonora Santanera en vivo', hora:'20:00 hrs', lugar:'Palacio Municipal', img:'octubre 23/3_perfume de gardenia.png'},
+
+  /* SÁB 24 */
+  {dia:24, sem:'SÁB', titulo:'31 Minutos', extra:'Tributo Musical', hora:'16:00 hrs', lugar:'Colonia UAM', img:'octubre 24/1_31 minutos.png'},
+  {dia:24, sem:'SÁB', titulo:'Cómo te va mi amor', extra:'Teatro · Con Violeta Isfel, Luz Edith Rojas, Grisel Margarita, Ricardo Ache y David Anguiano', hora:'17:00 y 19:30 hrs', lugar:'Teatro Zaragoza', img:'octubre 24/2_cómo te va mi amor.png'},
+  {dia:24, sem:'SÁB', titulo:'Reik', extra:'', hora:'20:00 hrs', lugar:'Palacio Municipal', img:'octubre 24/3_reik_b.png'},
+
+  /* DOM 25 */
+  {dia:25, sem:'DOM', titulo:'Mamma Mia!', extra:'El Musical', hora:'12:00 hrs', lugar:'TEC de Monterrey', img:'octubre 25/1_mamma mia!.png'},
+  {dia:25, sem:'DOM', titulo:'Yuri', extra:'Clausura', hora:'20:00 hrs', lugar:'Palacio Municipal', img:'octubre 25/2_YURI_ICONICA.jpg'}
+];
+
+var grid = document.getElementById('grid'), filtros = document.getElementById('filtros');
+eventos.forEach(function(e){
+  var c = document.createElement('article');
+  c.className = 'card'; c.dataset.dia = e.dia;
+  c.innerHTML = '<div class="img"><i class="fa-solid fa-image"></i><div class="fecha">'+e.sem+'<b>'+e.dia+'</b>OCT</div></div>'+
+    '<div class="info"><h3>'+e.titulo+'</h3>'+
+    (e.extra ? '<small><i class="fa-solid fa-star"></i>'+e.extra+'</small>' : '')+
+    '<small><i class="fa-regular fa-clock"></i>'+e.hora+'</small>'+
+    '<small><i class="fa-solid fa-location-dot"></i>'+e.lugar+'</small></div>';
+  // Add click handler for Mamma Mia! event
+  if (e.titulo === 'Mamma Mia!') {
+    c.style.cursor = 'pointer';
+    c.onclick = function() { window.open('https://forms.gle/xQ69Khv4Qxx3kXix6', '_blank'); };
+  }
+  grid.appendChild(c);
+  var im = new Image(), box = c.querySelector('.img');
+  im.onload = function(){ box.style.backgroundImage = 'url("'+encodeURI(e.img)+'")'; box.classList.add('foto'); };
+  im.src = encodeURI(e.img);
+});
+
+// Filtros por día
+var dias = [];
+eventos.forEach(function(e){ if(dias.indexOf(e.dia)<0) dias.push(e.dia); });
+[['todos','Todos']].concat(dias.map(function(d){ return [d,'Día '+d]; })).forEach(function(f,i){
+  var b = document.createElement('button');
+  b.textContent = f[1]; if(i===0) b.className='activo';
+  b.onclick = function(){
+    filtros.querySelectorAll('button').forEach(function(x){ x.classList.remove('activo'); });
+    b.classList.add('activo');
+    grid.querySelectorAll('.card').forEach(function(c){
+      c.classList.toggle('oculto', f[0]!=='todos' && c.dataset.dia!=f[0]);
+    });
+  };
+  filtros.appendChild(b);
+});
+
+function alternarSonido(){
+  var v = document.getElementById('vid'), i = document.querySelector('#btnSonido i');
+  v.muted = !v.muted;
+  i.className = v.muted ? 'fa-solid fa-volume-xmark' : 'fa-solid fa-volume-high';
+}
+
+function abrirLB(src){ document.getElementById('lbimg').src = src; document.getElementById('lb').classList.add('abierto'); }
+
+/* ===== ESTRELLAS CAYENDO ===== */
+var cv = document.getElementById('estrellas'), ctx = cv.getContext('2d'), W, H, ests = [];
+function medir(){ W = cv.width = innerWidth; H = cv.height = innerHeight; }
+addEventListener('resize', medir); medir();
+function nueva(arranque){
+  return {x:Math.random()*W, y:arranque ? Math.random()*H : -10, r:Math.random()*1.8+.4,
+          v:Math.random()*1.1+.4, d:(Math.random()-.5)*.5, t:Math.random()*6.3, fuga:Math.random()<.08};
+}
+for(var i=0;i<110;i++) ests.push(nueva(true));
+(function dibujar(){
+  ctx.clearRect(0,0,W,H);
+  ests.forEach(function(s,i){
+    s.y += s.v * (s.fuga?5:1); s.x += s.d * (s.fuga?4:1); s.t += .05;
+    var a = .5 + .5*Math.sin(s.t);
+    if(s.fuga){
+      var g = ctx.createLinearGradient(s.x,s.y,s.x-s.d*30,s.y-s.v*30);
+      g.addColorStop(0,'rgba(255,240,210,.9)'); g.addColorStop(1,'rgba(255,240,210,0)');
+      ctx.strokeStyle = g; ctx.lineWidth = s.r; ctx.beginPath();
+      ctx.moveTo(s.x,s.y); ctx.lineTo(s.x-s.d*30,s.y-s.v*30); ctx.stroke();
+    } else {
+      ctx.fillStyle = 'rgba(255,225,170,'+(.25+.65*a)+')';
+      ctx.shadowColor = '#d9b27c'; ctx.shadowBlur = 8;
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,6.3); ctx.fill(); ctx.shadowBlur = 0;
+    }
+    if(s.y > H+20) ests[i] = nueva(false);
+  });
+  requestAnimationFrame(dibujar);
+})();
+
+/* ===== BOTÓN ATENCIÓN CIUDADANA ===== */
+function enrutarGlobo(){
+  var ua = navigator.userAgent || '';
+  var ios = /iPad|iPhone|iPod/.test(ua) || (navigator.maxTouchPoints > 2 && /Macintosh/.test(ua));
+  var android = /android/i.test(ua);
+  var play = 'https://play.google.com/store/apps/details?id=mx.gob.edomex.atizapan.gc&hl=es_MX';
+  if(ios) window.open('https://apps.apple.com/mx/app/atizap%C3%A1n-te-escucha/id1615821677','_blank');
+  else if(android || innerWidth <= 1024) window.open(play,'_blank');
+  else window.open('https://atizapan.gob.mx/?page_id=19001','_blank');
+}
+</script>
+</body>
+</html>
