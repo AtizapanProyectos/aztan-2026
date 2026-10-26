@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- deploy: 2026-10-23 · cartel actualizado (Lago de los Cisnes / Royal Ukrainian Ballet) -->
+<!-- deploy: 2026-10-23 · cartel actualizado (Lago de los Cisnes / Royal Ukrainian Ballet) · 2026-10-26 · mega galería de fotos por evento (carpeta ATZAN2026/) -->
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -86,6 +86,54 @@ header,main,footer{position:relative;z-index:3}
 .info small{display:block;font-size:.78rem;opacity:.85;line-height:1.7}
 .info small i{color:var(--oro);width:16px}
 
+/* ===== MEGA GALERÍA (portadas por evento) ===== */
+.mgal{max-width:1300px;margin:0 auto;padding:55px 20px 90px}
+.mgal h2{font-family:'Cormorant Garamond',serif;text-align:center;font-size:2.6rem;color:var(--oro)}
+.mgal .sub{text-align:center;opacity:.7;margin:4px 0 30px;font-size:.9rem}
+.covers{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px}
+.cover{position:relative;border-radius:16px;overflow:hidden;cursor:pointer;border:1px solid rgba(217,178,124,.35);background:var(--card);box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .3s,box-shadow .3s}
+.cover:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(217,178,124,.28)}
+.cover img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;transition:transform .5s}
+.cover:hover img{transform:scale(1.08)}
+.cover .tapa{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;background:linear-gradient(to top,rgba(0,0,0,.88) 0,rgba(0,0,0,.28) 55%,transparent);pointer-events:none}
+.cover h3{font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:#fff;line-height:1.15}
+.cover small{color:var(--oro);font-size:.73rem;letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
+.cover .ver{position:absolute;top:12px;right:12px;background:rgba(18,13,11,.82);border:1px solid var(--oro);color:var(--oro);border-radius:20px;padding:6px 12px;font-size:.72rem;font-weight:700;display:flex;align-items:center;gap:6px;pointer-events:none}
+@media(max-width:640px){.covers{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}.cover h3{font-size:1.15rem}.cover .ver{font-size:.65rem;padding:5px 9px}}
+
+/* ===== ÁLBUM ABIERTO (efecto expansión) ===== */
+.amodal{position:fixed;inset:0;background:rgba(10,7,6,.98);display:none;z-index:9000;overflow-y:auto;animation:expande .38s cubic-bezier(.2,.9,.3,1.2)}
+.amodal.abierto{display:block}
+@keyframes expande{from{opacity:0;transform:scale(.82)}to{opacity:1;transform:scale(1)}}
+.am-cab{position:sticky;top:0;background:linear-gradient(rgba(10,7,6,.97),rgba(10,7,6,.75));padding:20px;text-align:center;border-bottom:1px solid rgba(217,178,124,.25);z-index:5}
+.am-cab h3{font-family:'Cormorant Garamond',serif;font-size:2.1rem;color:var(--oro)}
+.am-cab small{display:block;opacity:.8;font-size:.8rem;margin-top:3px;letter-spacing:.05em}
+.am-cerr{position:absolute;top:14px;right:16px;width:44px;height:44px;border-radius:50%;border:1px solid var(--oro);background:rgba(18,13,11,.8);color:var(--oro);font-size:1.05rem;cursor:pointer;transition:.2s}
+.am-cerr:hover{background:var(--oro);color:#000}
+.am-cuerpo{max-width:1300px;margin:0 auto;padding:26px 20px 70px}
+.mgrid{columns:4 240px;column-gap:16px}
+.mgrid figure{margin:0 0 16px;break-inside:avoid;position:relative;border-radius:12px;overflow:hidden;cursor:zoom-in;border:1px solid rgba(217,178,124,.25);background:var(--card)}
+.mgrid img{width:100%;display:block;transition:transform .4s}
+.mgrid figure:hover img{transform:scale(1.06)}
+.mgrid figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 10px;background:linear-gradient(to top,rgba(0,0,0,.78),transparent);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--oro);opacity:0;transition:.3s;text-align:center}
+.mgrid figure:hover figcaption{opacity:1}
+@media(max-width:640px){.mgrid{columns:2 140px;column-gap:10px}.mgrid figure{margin-bottom:10px}}
+
+/* ===== VISOR DE GALERÍA ===== */
+.glb{position:fixed;inset:0;background:rgba(0,0,0,.96);display:none;flex-direction:column;z-index:10001}
+.glb.abierto{display:flex}
+.glb .escenario{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:56px 20px}
+.glb .escenario img{max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 10px 50px rgba(0,0,0,.7)}
+.glb .flecha{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1px solid var(--oro);background:rgba(18,13,11,.7);color:var(--oro);font-size:1.15rem;cursor:pointer;transition:.2s;z-index:2}
+.glb .flecha:hover{background:var(--oro);color:#000}
+.glb .ant{left:16px}.glb .sig{right:16px}
+.glb .cerrar{position:absolute;top:14px;right:16px;width:44px;height:44px;border-radius:50%;border:1px solid var(--oro);background:rgba(18,13,11,.7);color:var(--oro);font-size:1.05rem;cursor:pointer;transition:.2s}
+.glb .cerrar:hover{background:var(--oro);color:#000}
+.glb .barra{text-align:center;padding:14px 16px 20px;color:var(--oro)}
+.glb .barra .tit{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#fff}
+.glb .barra .cont{font-size:.78rem;letter-spacing:.15em;opacity:.8;margin-top:2px}
+@media(max-width:640px){.glb .flecha{width:40px;height:40px}.glb .ant{left:8px}.glb .sig{right:8px}.glb .escenario{padding:52px 8px}}
+
 /* ===== LIGHTBOX ===== */
 .lb{position:fixed;inset:0;background:rgba(0,0,0,.93);display:none;align-items:center;justify-content:center;z-index:10000;padding:20px}
 .lb.abierto{display:flex}
@@ -130,6 +178,13 @@ footer{background:#0a0706;border-top:3px solid var(--oro2);padding-top:36px}
     <button class="sonido" id="btnSonido" onclick="alternarSonido()" aria-label="Sonido"><i class="fa-solid fa-volume-xmark"></i></button>
   </section>
 
+  <!-- ===== MEGA GALERÍA (principal) ===== -->
+  <section class="mgal" id="galeria">
+    <h2>Mega Galería</h2>
+    <p class="sub">Revive los mejores momentos de ATZÁN 2026 · Toca un evento y ábrelo foto a foto</p>
+    <div class="covers" id="covers"></div>
+  </section>
+
   <!-- ===== CARTELERA ===== -->
   <section class="hero">
     <p style="margin-top:0">Cartelera oficial</p>
@@ -147,6 +202,28 @@ footer{background:#0a0706;border-top:3px solid var(--oro2);padding-top:36px}
 </main>
 
 <div class="lb" id="lb" onclick="this.classList.remove('abierto')"><img id="lbimg" alt=""></div>
+
+<!-- ===== ÁLBUM DE FOTOS DEL EVENTO ===== -->
+<div class="amodal" id="amodal">
+  <div class="am-cab">
+    <button class="am-cerr" onclick="cerrarAlbum()" aria-label="Cerrar álbum"><i class="fa-solid fa-xmark"></i></button>
+    <h3 id="amTit"></h3>
+    <small id="amSub"></small>
+  </div>
+  <div class="am-cuerpo"><div class="mgrid" id="amGrid"></div></div>
+</div>
+
+<!-- ===== VISOR DE GALERÍA ===== -->
+<div class="glb" id="glb">
+  <button class="cerrar" onclick="cerrarGaleria()" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+  <button class="flecha ant" onclick="moverFoto(-1)" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+  <button class="flecha sig" onclick="moverFoto(1)" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+  <div class="escenario" onclick="cerrarGaleria()"><img id="glbimg" alt=""></div>
+  <div class="barra">
+    <div class="tit" id="glbtit"></div>
+    <div class="cont" id="glbcont"></div>
+  </div>
+</div>
 
 <!-- ===== FOOTER ===== -->
 <footer>
@@ -279,6 +356,106 @@ function alternarSonido(){
 }
 
 function abrirLB(src){ document.getElementById('lbimg').src = src; document.getElementById('lb').classList.add('abierto'); }
+
+/* ===== MEGA GALERÍA (fotos por carpeta en ATZAN2026/) ===== */
+var albums = [
+  /* VIE 16 */
+  {carpeta:'balla durmiente ballete de monterrey', titulo:'La Bella Durmiente', sub:'16 OCT · Inauguración · Ballet de Monterrey', files:[
+    'WhatsApp Image 2026-10-16 at 11.34.51 PM.jpeg','WhatsApp Image 2026-10-16 at 11.34.52 PM (1).jpeg','WhatsApp Image 2026-10-16 at 11.34.52 PM.jpeg','WhatsApp Image 2026-10-16 at 11.34.53 PM.jpeg','WhatsApp Image 2026-10-16 at 11.34.54 PM (1).jpeg','WhatsApp Image 2026-10-16 at 11.34.54 PM.jpeg','WhatsApp Image 2026-10-16 at 11.34.55 PM.jpeg','WhatsApp Image 2026-10-16 at 11.34.56 PM.jpeg','WhatsApp Image 2026-10-16 at 11.34.57 PM (1).jpeg','WhatsApp Image 2026-10-16 at 11.34.57 PM.jpeg']},
+  /* SÁB 17 */
+  {carpeta:'nataliajimenez', titulo:'Natalia Jiménez', sub:'17 OCT · Palacio Municipal', files:[
+    '2c704bc3-2ba0-41aa-b5cf-fd2af032593f.jpg','64ab9cad-8f4b-4d0f-8c80-231600084634.jpg','67917f43-5280-49b5-9c57-ed9960571f36.jpg','6d206971-87ce-4c66-9703-8057bd5bc2d1.jpg','6f0b4f4a-bc1c-48c8-bccb-7ab9b580487c.jpg','91ef77b2-7727-44d3-8a47-d7f61585559d.jpg','9bb41735-0ca2-486f-867d-c9251164a91a.jpg','c1546f75-c7c7-43ec-8d32-249572d4b666.jpg','ddc3ddde-6520-40bb-b7f5-c0e1eea2351b.jpg','e0b9a9c4-2d99-40ec-9c3d-d979867abfe5.jpg','ebefad10-d577-4902-95f2-b64c4efdb1ba.jpg']},
+  /* DOM 18 */
+  {carpeta:'óperaprimarockqueen', titulo:'Ópera Prima Rock · Tributo a Queen', sub:'18 OCT · Palacio Municipal', files:[
+    '1e5f7fd2-b36b-4077-a357-9592c54ff154.jpg','29449ce2-6a18-4e37-970a-af022b29cac9.jpg','4dc9d3cc-f98a-4524-878c-ddd8163774a0.jpg','64f8c3a7-15f4-454c-a040-211e0a99270a.jpg','9602a70c-8eb8-4697-befb-f59a186ee049.jpg','9a70bdd4-9838-4e2e-beee-2fa2c8ab2b16.jpg','9ebb3e7e-2cf4-449a-9843-f958ef65177f.jpg','ae12c107-edec-4d05-aaed-ad4fc6ef9397.jpg','bd69093f-c11e-483a-bb77-c39a1b85f48b.jpg','f7fa06d9-83a6-42a1-8d44-cf5ea46b887b.jpg']},
+  {carpeta:'jazzpeando', titulo:'JAZZPEANDO', sub:'18 OCT · Teatro Zaragoza · Teatro Negro "La Trouppe"', files:[
+    '4527c38d-4200-431f-b96c-8e88b509a7bf.jpg','5011fc81-92b0-4c46-a11a-de713bf081ab.jpg','8c9efab8-47b9-4c86-8690-082e87fb846b.jpg','923c440c-5fe9-4a02-aaa5-4dd22c5cb6d6.jpg','bf38e7be-dd2f-48c5-8a0f-389a3b039281.jpg','d3e1a4da-5580-4fc0-b856-3e878b2395f7.jpg']},
+  {carpeta:'expodeartelaantigua', titulo:'Expo de Arte · Plaza la Antigua', sub:'18 OCT · Plaza la Antigua', files:[
+    '66e4208c-bd6e-48a8-8476-01358b9083ea.jpg','745aeb4b-0ed4-44a4-baf2-afad5191ffa1.jpg','a765558e-4f57-400e-8978-d9675c44e259.jpg','d459f3fb-46a4-4a13-b7d2-673e144b9273.jpg','d4817a8a-4edc-4a38-b05c-12af4cff64d7.jpg','fc0eb0de-71de-4c30-8406-90ca1643d614.jpg','fdd309d0-a68d-4bb9-b3fc-aa28bd298fca.jpg']},
+  /* LUN 19 */
+  {carpeta:'Unaevaytresgalanes', titulo:'Una Eva y tres galanes', sub:'19 OCT · Teatro Zaragoza', files:[
+    '13e868d7-611f-40a5-95af-0d04e9ccdb73.jpg','2c5e6991-0447-4fae-a4db-36f31070a005.jpg','40e7ea00-f38e-483d-a5ce-d2bef55f9468.jpg','5f4f9eb3-d69b-4a3e-9e9e-f4874349f512.jpg','6923c429-26d7-418d-b6da-77bef1bb1a72.jpg','7e3733df-0832-4d14-927f-5ffc2466dae0.jpg']},
+  /* MAR 20 */
+  {carpeta:'cameratajuveni', titulo:'Camerata Juvenil de México', sub:'20 OCT · Parroquia de Guadalupe', files:[
+    '5c5bba3c-e2ee-41ec-818f-557c7984d1a5.jpg','6a6ab65b-4188-43e1-a77e-0000e27cd12a.jpg','caf9603e-5539-4bfd-8da4-0b73c9769f3a.jpg','cb882d0c-904b-4d3a-8287-78306e6c41d6.jpg','f515918d-8110-4ccc-b709-b5ce9a467f75.jpg']},
+  {carpeta:'Hérculeselmusical', titulo:'Hércules el Musical', sub:'20 OCT · Teatro Zaragoza', files:[
+    '05c6b091-60cb-4a0c-a5d7-0a245ee2a648.jpg','0c99c42e-c82d-4a6a-b501-976dc45444d0.jpg','23a9eb2a-e616-4577-8a9f-05aa35337947.jpg','52e417a2-80dd-4395-8d29-661095f8fd0e.jpg','72dc0d93-cddb-4387-8335-d88795c43bd7.jpg','892735ee-944e-456e-aa47-452badf4c179.jpg']},
+  /* MIÉ 21 */
+  {carpeta:'NiñoperdidoObra', titulo:'Niño Perdido · Lolita Cortés', sub:'21 OCT · Teatro Zaragoza', files:[
+    '09f70ce0-1fb2-4bf7-ac41-7c34baaba1a2.jpg','31e00f40-0675-4c8f-9ac9-5684121740ed.jpg','549029bb-33cc-4a51-918f-8ded643af2c2.jpg','841e3cda-c679-4532-8bc2-22e18f6eb667.jpg']},
+  {carpeta:'lago de los cisnes RoyalUkrainianballet', titulo:'El Lago de los Cisnes', sub:'21 OCT · Palacio Municipal · Royal Ukrainian Ballet', files:[
+    '149b6274-daab-4b3d-ae00-d29bb3f12318.jpg','3c8c8253-c31a-4f05-9061-d142b60571bc.jpg','3ed5b16d-b7a8-4cc8-a2bd-f32ddcb83f5a.jpg','5cb15022-ca5a-4cb6-aaf3-0c29d02941fa.jpg','5cb58c2d-4aa9-4e5e-a666-b4dd21714a5a.jpg','60a5d2e3-3e45-4d88-9e4b-c6869728c06d.jpg','6bd88218-6a7e-47d3-9d5d-26f704b6b3b8.jpg','6f697f29-dfa2-475d-aeee-25f4c277ad87.jpg','78799f93-f933-4d53-b394-a6d4d744e367.jpg','a944e9da-1103-45fa-b8e5-33fe3411bac6.jpg','ab88b325-ea48-497b-a49c-5dbdfa82cb45.jpg','cab687be-2461-44c7-b24d-dc0792ff758c.jpg','ddc6fb2f-6068-41fe-9ee0-48de227c523f.jpg','e0d74f4c-b446-4cc2-9f22-9002b39bf099.jpg']},
+  /* VIE 23 */
+  {carpeta:'Perfuemdegardenia', titulo:'Perfume de Gardenia', sub:'23 OCT · Palacio Municipal · Sonora Santanera en vivo', files:[
+    '018c301d-495d-4588-9143-9b65f3f1efaa.jpg','069b4c53-fdf9-4839-a5a2-1b3c7b332f34.jpg','0d76c9aa-f46d-4232-9c14-567c3ee09682.jpg','2b091783-5768-46d2-8b30-f3ab4419c9a3.jpg','39ec231b-f0ca-4340-a6f0-3b8a85e833f5.jpg','49e995ce-0997-4992-a267-f8252969c903.jpg','6180cde6-6558-4ced-b8bf-0891c67535e5.jpg','61b70ae3-febf-4953-ab8b-e0580125fb34.jpg','b475523d-adf1-4ad2-8bce-412ab1923ca1.jpg','beafd6a1-461d-4540-bd05-9a3ca6a35c41.jpg','cef817aa-7b08-41f1-98ce-b34181f375c2.jpg','e34c20c9-df9c-4690-a337-718cd3ec6fbb.jpg','e96311bb-8338-4590-9dc8-9074b3dd7cf4.jpg','ee265824-6d88-4bc1-a1e3-d7a909bcf40d.jpg','f0c16de1-bff2-4280-a99d-2a1277b4bb4e.jpg']},
+  /* SÁB 24 */
+  {carpeta:'Reik', titulo:'Reik', sub:'24 OCT · Palacio Municipal', files:[
+    '0b038314-92fb-4e01-be87-ebdf79601e4f.jpg','23c89546-1846-4681-a6f0-3d0f55c86130.jpg','28812169-9deb-4d35-8577-63cd80c1aafb.jpg','4215c060-a804-42ea-9ec3-2d4f34e29a2e.jpg','42b29680-3bd0-4890-9fb9-20731c1644be.jpg','4ab07651-6336-4b99-a561-0073410c3894.jpg','929f0fa3-abaf-4e8e-a602-cb5e7b568a61.jpg','a7cbe049-7ef4-4d2d-9e16-f81fc6c89a32.jpg','a7ed1142-34fe-4870-8b31-8772c604bf06.jpg','ca2180e9-524d-43a9-855f-3281995a2fd5.jpg','d2995ad8-ec75-4ab8-a033-76cb130d7bef.jpg','dfaee45d-805e-451b-91a7-69347cda7d29.jpg','e82d240f-c7dc-4eb8-a128-bec85cead3d4.jpg','f60ba2e1-3603-44d4-ab08-d23175f95a86.jpg']},
+  /* DOM 25 */
+  {carpeta:'Yuri', titulo:'Yuri · Clausura', sub:'25 OCT · Palacio Municipal', files:[
+    '2c5d0a11-ddf3-4d0f-8436-d83328930916.jpg','31e0e60a-2121-4c15-90d7-6d1961b49e08.jpg','5824e901-a416-4bac-8a3d-1578aaefd312.jpg','66c4f793-2152-48e9-a3e7-0c8c186d7dae.jpg','70dffc46-fb14-493f-8068-1109cd9cced2.jpg','7608e888-02a3-4f4b-ac1f-a65b72783443.jpg','a6cdd5ca-f548-471e-b17e-4119c005c501.jpg','ccc78462-6aa0-49cd-b3ce-407ef2f67960.jpg','d1e1c8dd-a6af-4419-8185-14a2d3e060ac.jpg','d7781b32-9cfd-442e-89d3-8373b1338697.jpg','f130744c-8fbf-4515-9d93-fec7cac2be31.jpg','f1407e87-f0c1-42dd-a2f7-5e209a0b4e12.jpg']}
+];
+
+var coversBox = document.getElementById('covers'), amGrid = document.getElementById('amGrid'), amodal = document.getElementById('amodal');
+var fotosActuales = [], fotoIdx = 0, albumActual = 0;
+
+/* Portadas: una foto grande por evento; al hacer clic se abre su álbum */
+albums.forEach(function(a, i){
+  var c = document.createElement('div');
+  c.className = 'cover';
+  c.innerHTML = '<img loading="lazy" alt="'+a.titulo+'">'+
+    '<div class="tapa"><h3>'+a.titulo+'</h3><small>'+a.sub+' · '+a.files.length+' fotos</small></div>'+
+    '<span class="ver"><i class="fa-solid fa-images"></i>Ver galería</span>';
+  c.onclick = function(){ abrirAlbum(i); };
+  coversBox.appendChild(c);
+  var im = c.querySelector('img');
+  im.onload = function(){ im.classList.add('lista'); };
+  im.src = encodeURI('ATZAN2026/' + a.carpeta + '/' + a.files[0]);
+});
+
+/* Abrir álbum: se expande en pantalla con todas las fotos del evento */
+function abrirAlbum(i){
+  albumActual = i;
+  var a = albums[i];
+  fotosActuales = [];
+  amGrid.innerHTML = '';
+  a.files.forEach(function(f, fi){
+    var url = encodeURI('ATZAN2026/' + a.carpeta + '/' + f);
+    fotosActuales.push(url);
+    var fig = document.createElement('figure');
+    fig.innerHTML = '<img loading="lazy" alt="'+a.titulo+'"><figcaption>'+a.titulo+' · '+(fi+1)+'</figcaption>';
+    fig.onclick = function(){ abrirGaleria(fi); };
+    amGrid.appendChild(fig);
+    fig.querySelector('img').src = url;
+  });
+  document.getElementById('amTit').textContent = a.titulo;
+  document.getElementById('amSub').textContent = a.sub + ' · ' + a.files.length + ' fotografías';
+  amodal.classList.add('abierto');
+  amodal.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+function cerrarAlbum(){ amodal.classList.remove('abierto'); document.body.style.overflow = ''; }
+
+/* ===== VISOR DE GALERÍA ===== */
+var glb = document.getElementById('glb');
+function abrirGaleria(i){ fotoIdx = i; pintarFoto(); glb.classList.add('abierto'); document.body.style.overflow = 'hidden'; }
+function cerrarGaleria(){ glb.classList.remove('abierto'); document.body.style.overflow = 'hidden'; }
+function moverFoto(d){ fotoIdx = (fotoIdx + d + fotosActuales.length) % fotosActuales.length; pintarFoto(); }
+function pintarFoto(){
+  document.getElementById('glbimg').src = fotosActuales[fotoIdx];
+  document.getElementById('glbcont').textContent = (fotoIdx+1) + ' / ' + fotosActuales.length;
+  document.getElementById('glbtit').textContent = albums[albumActual].titulo + ' — ' + albums[albumActual].sub;
+}
+glb.querySelector('.escenario img').addEventListener('click', function(e){ e.stopPropagation(); });
+document.addEventListener('keydown', function(e){
+  if(glb.classList.contains('abierto')){
+    if(e.key === 'Escape') cerrarGaleria();
+    else if(e.key === 'ArrowLeft') moverFoto(-1);
+    else if(e.key === 'ArrowRight') moverFoto(1);
+  } else if(amodal.classList.contains('abierto') && e.key === 'Escape'){
+    cerrarAlbum();
+  }
+});
 
 /* ===== ESTRELLAS CAYENDO ===== */
 var cv = document.getElementById('estrellas'), ctx = cv.getContext('2d'), W, H, ests = [];
